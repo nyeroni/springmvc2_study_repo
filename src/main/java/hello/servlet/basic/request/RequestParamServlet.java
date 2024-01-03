@@ -25,8 +25,7 @@ public class RequestParamServlet extends HttpServlet {
         Enumeration<String> parameterNames = request.getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String paramName = parameterNames.nextElement();
-            System.out.println(paramName + "=" +
-request.getParameter(paramName));
+            System.out.println(paramName + "=" +request.getParameter(paramName));
 } */
         request.getParameterNames().asIterator()
                 .forEachRemaining(paramName -> System.out.println(paramName +
