@@ -64,4 +64,18 @@ public class MappingController {
         return "ok";
     }
 
+    /**
+     * 파라미터로 추가 매핑
+     * params="mode",
+     * params="!mode"
+     * params="mode=debug"
+     * params="mode!=debug" (! = )
+     * params = {"mode=debug", "data=good"}
+     */
+    @GetMapping(value = "/mapping-param", params = "mode=debug")
+    public String mappingParam(){
+        log.info("mappingParam");
+        return "ok";
+    }
+
 }
