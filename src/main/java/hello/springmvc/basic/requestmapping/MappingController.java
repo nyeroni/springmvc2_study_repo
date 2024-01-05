@@ -78,4 +78,17 @@ public class MappingController {
         return "ok";
     }
 
+    /**
+     * 특정 헤더로 추가 매핑
+     * headers="mode",
+     * headers="!mode"
+     * headers="mode=debug"
+     * headers="model!=debug" (! = )
+     */
+    @GetMapping(value = "/mapping-header", headers = "mode=debug")
+    public String mappingHeader(){
+        log.info("mappingHeader");
+        return "ok";
+    }
+
 }
