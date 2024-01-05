@@ -32,9 +32,9 @@ public class FrontControllerServletV3 extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        StringBuffer requestURL = request.getRequestURL();
+        String requestURI = request.getRequestURI();
 
-        ControllerV3 controller = controllerMap.get(requestURL);
+        ControllerV3 controller = controllerMap.get(requestURI);
 
         if(controller == null)
         {
