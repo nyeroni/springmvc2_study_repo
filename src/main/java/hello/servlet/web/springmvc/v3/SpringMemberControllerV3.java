@@ -18,7 +18,7 @@ import java.util.List;
  * @RequestMapping -> @GetMapping, @PostMapping
  */
 @Controller
-@RequestMapping("/spring/v3/members")
+@RequestMapping("/springmvc/v3/members")
 public class SpringMemberControllerV3 {
 
     private MemberRepository memberRepository = MemberRepository.getInstance();
