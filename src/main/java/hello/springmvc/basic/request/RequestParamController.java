@@ -87,5 +87,22 @@ public class RequestParamController {
         log.info("username={}, age={}", username, age);
         return "ok";
     }
+
+    /**
+     * @RequestParam
+     * - defaultValue 사용
+     *
+     * 참고 : defaultValue는 빈 문자의 경우에도 적용
+     * /request-param-default?username=
+     */
+    @ResponseBody
+    @RequestMapping("/request-param-default")
+    public String requestParamDefault(
+            @RequestParam(required = true, defaultValue = "guest")String username,
+            @RequestParam(required = false, defaultValue = "-1") int age){
+
+        log.info("username={}, age={}", username, age);
+        return "ok";
+    }
 }
 
