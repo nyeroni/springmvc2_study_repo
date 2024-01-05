@@ -54,4 +54,14 @@ public class MappingController {
         log.info("mappingPath userId={}", data);
         return "ok";
     }
+
+    /**
+     * PathVariable 사용 다중
+     */
+    @GetMapping("/mapping/users/{userId}/orders/{orderId}")
+    public String mappingPath(@PathVariable String userId, @PathVariable Long orderId){
+        log.info("mappingPath userId={}, orderId={}", userId, orderId);
+        return "ok";
+    }
+
 }
