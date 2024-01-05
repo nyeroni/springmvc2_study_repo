@@ -112,7 +112,7 @@ public class MappingController {
      * produces = "text/*"
      * produces = "*\/*"
      */
-    @PostMapping(value = "/mapping-produce", produces = "text.html")
+    @PostMapping(value = "/mapping-produce", produces = "text/html")
     public String mappingProduces(){
         log.info("mappingProduces");
         return "ok";
