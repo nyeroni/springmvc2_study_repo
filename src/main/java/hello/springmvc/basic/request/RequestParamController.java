@@ -69,4 +69,23 @@ public class RequestParamController {
         log.info("username={}, age={}", username, age);
         return "ok";
     }
+
+    /**
+     * @RequestParam.required
+     * /request-param-required -> username이 없으므로 예외
+     *
+     * 주의 !
+     * /request-param-required
+     * int age -> null을 int에 입력하는 것은 불가능
+     * 따라서 Integer 변경해야 함 (또는 다음에 나오는 defaultValue 사용)
+     */
+    @ResponseBody
+    @RequestMapping("/request-param-required")
+    public String requestParamRequired(
+            @RequestParam(required = true) String username,
+            @RequestParam(required = false)Integer age){
+        log.info("username={}, age={}", username, age);
+        return "ok";
+    }
 }
+
