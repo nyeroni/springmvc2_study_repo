@@ -104,4 +104,17 @@ public class MappingController {
         log.info("mappingConsumes");
         return "ok";
     }
+
+    /**
+     * Accept 헤더 기반 Media Type
+     * produces = "text/html"
+     * produces = "!text/html"
+     * produces = "text/*"
+     * produces = "*\/*"
+     */
+    @PostMapping(value = "/mapping-produce", produces = "text.html")
+    public String mappingProduces(){
+        log.info("mappingProduces");
+        return "ok";
+    }
 }
