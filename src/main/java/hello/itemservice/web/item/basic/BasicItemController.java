@@ -76,15 +76,15 @@ public class BasicItemController {
 //        return "basic/item";
 //    }
 
-    /**
-     * @ModelAttribute 자체 생략 가능
-     * model.addAttribute(item) 자동 추가
-     */
-    @PostMapping("/add")
-    public String addItemV4(Item item){
-        itemRepository.save(item);
-        return "basic/item";
-    }
+//    /**
+//     * @ModelAttribute 자체 생략 가능
+//     * model.addAttribute(item) 자동 추가
+//     */
+//    @PostMapping("/add")
+//    public String addItemV4(Item item){
+//        itemRepository.save(item);
+//        return "basic/item";
+//    }
 
     @GetMapping("/{itemId}/edit")
     public String editForm(@PathVariable Long itemId, Model model){
