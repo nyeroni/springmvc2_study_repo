@@ -18,6 +18,6 @@ public class BasicController {
     @GetMapping("/text-unescaped")
     public String textUnescaped(Model model){
         model.addAttribute("data", "Hello <b>Spring!</b>");
-        return "basic/text-unexcaped";
+        return "basic/text-unescaped";
     }
 }
