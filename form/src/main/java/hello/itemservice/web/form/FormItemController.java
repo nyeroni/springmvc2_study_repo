@@ -27,9 +27,14 @@ public class FormItemController {
     }
 
     @GetMapping("/{itemId}")
-    public String item(@PathVariable long itemId, Model model) {
+    public String item(@PathVariable(name = "itemId") long itemId, Model model) {
+        log.info("success1");
+
         Item item = itemRepository.findById(itemId);
+        log.info("success2");
+
         model.addAttribute("item", item);
+        log.info("success3");
         return "form/item";
     }
 
@@ -46,6 +51,7 @@ public class FormItemController {
         Item savedItem = itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", savedItem.getId());
         redirectAttributes.addAttribute("status", true);
+        log.info("redirect gogo");
         return "redirect:/form/items/{itemId}";
     }
 
