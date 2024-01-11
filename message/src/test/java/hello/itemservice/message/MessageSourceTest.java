@@ -34,4 +34,14 @@ class MessageSourceTest
                 .isInstanceOf(NoSuchMessageException.class);
     }
 
+    /**
+     * 기본 메시지
+     */
+    @Test
+    void notFoundMessageCodeDefaultMessage(){
+        String result = ms.getMessage("no_code", null, "기본 메시지", null);
+        assertThat(result).isEqualTo("기본 메시지");
+    }
+
+
 }
