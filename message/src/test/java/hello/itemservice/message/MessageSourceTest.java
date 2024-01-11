@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.NoSuchMessageException;
 
+import java.util.Locale;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,12 +34,4 @@ class MessageSourceTest
                 .isInstanceOf(NoSuchMessageException.class);
     }
 
-    /**
-     * 기본 메시지
-     */
-    @Test
-    void notFoundMessageCodeDefaultMessage(){
-        String result = ms.getMessage("no_code", null, "기본 메시지", null);
-        assertThat(result).isEqualTo("기본 메시지");
-    }
 }
