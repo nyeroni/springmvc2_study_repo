@@ -32,4 +32,9 @@ public class LogFilter implements Filter {
             log.info("RESPONSE [{}][{}]", uuid, requestURI);
         }
     }
+
+    @Override
+    public void destroy(){
+        log.info("log filter destory");
+    }
 }
