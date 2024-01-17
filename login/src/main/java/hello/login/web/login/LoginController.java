@@ -106,14 +106,24 @@ public class LoginController {
         expireCookie(response, "memberId");
         return "redirect:/";
     }
-    @PostMapping("/logout")
-    public String logoutV2(HttpServletRequest request){
-        sessionManager.getSession(request);
-        return "redirect:/";
-    }
     private void expireCookie(HttpServletResponse response, String cookieName){
         Cookie cookie = new Cookie(cookieName, null);
         cookie.setMaxAge(0);
         response.addCookie(cookie);
+    }
+   // @PostMapping("/logout")
+    public String logoutV2(HttpServletRequest request){
+        sessionManager.getSession(request);
+        return "redirect:/";
+    }
+
+    @PostMapping("/logout")
+    public String logoutV3(HttpServletRequest request){
+        //세션 삭제
+        HttpSession session = request.getSession(false);
+        if(session != null){
+            session.invalidate();
+        }
+        return "redirect:/";
     }
 }
