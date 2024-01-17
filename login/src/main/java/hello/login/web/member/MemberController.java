@@ -1,5 +1,7 @@
 package hello.login.web.member;
 
+import hello.login.domain.member.Member;
+import hello.login.domain.member.MemberRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
