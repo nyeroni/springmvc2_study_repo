@@ -50,5 +50,4 @@ public class ErrorPageController {
                 request.getAttribute(ERROR_STATUS_CODE));
         log.info("dispatchType={}", request.getDispatcherType());
     }
-    }
 }
