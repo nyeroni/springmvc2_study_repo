@@ -20,16 +20,16 @@ public class ErrorPageController {
     //RequestDispatcher 상수로 정의되어 있음
 //RequestDispatcher 상수로 정의되어 있음
     public static final String ERROR_EXCEPTION =
-            "javax.servlet.error.exception";
+            "jakarta.servlet.error.exception";
     public static final String ERROR_EXCEPTION_TYPE =
-            "javax.servlet.error.exception_type";
-    public static final String ERROR_MESSAGE = "javax.servlet.error.message";
+            "jakarta.servlet.error.exception_type";
+    public static final String ERROR_MESSAGE = "jakarta.servlet.error.message";
     public static final String ERROR_REQUEST_URI =
-            "javax.servlet.error.request_uri";
+            "jakarta.servlet.error.request_uri";
     public static final String ERROR_SERVLET_NAME =
-            "javax.servlet.error.servlet_name";
+            "jakarta.servlet.error.servlet_name";
     public static final String ERROR_STATUS_CODE =
-            "javax.servlet.error.status_code";
+            "jakarta.servlet.error.status_code";
     @RequestMapping("/error-page/404")
     public String errorPage404(HttpServletRequest request, HttpServletResponse response){
 
@@ -63,9 +63,14 @@ public class ErrorPageController {
         log.info("API errorPage 500");
 
         Map<String, Object> result = new HashMap<>();
+
         Exception ex = (Exception) request.getAttribute(ERROR_EXCEPTION);
+        log.info("ex=", ex);
+        log.info("status={}", request.getAttribute(ERROR_STATUS_CODE));
+        log.info("message={}", ex.getMessage());
         result.put("status", request.getAttribute(ERROR_STATUS_CODE));
-        result.put("message" ,ex.getMessage());
+        result.put("message", ex.getMessage());
+
 
         Integer statusCode = (Integer) request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
         return new ResponseEntity<>(result, HttpStatusCode.valueOf(statusCode));
